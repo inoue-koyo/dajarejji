@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="dajare_false">
+    <h1 class="dajare_false_text">
+        {{message}}
+    </h1>
+    <div class="false_factor">
+        <p class="false_factor_text">
+            <span class="false_factor_name">入力</span>
+            ：{{input_text}}<br><br>
+            <span class="false_factor_name">読み</span>
+            ：{{preprocessing}}
+        </p>    
+    </div>
+    <a class="button" id="false_to_input" href="/">もう1回判定してみる</a>    
+</div>
+{% endblock %}

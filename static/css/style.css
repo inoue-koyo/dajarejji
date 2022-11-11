@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    margin: 0px;
+    background-color: white;
+    font-family:sans-serif;
+}
+    .home_header{
+        height: 40px;
+        /* background: rgba(11, 56, 97, 0.5); */
+        background: rgb(250,235,215,0.8);
+        /* background: rgb(255,250,250,0.9); */
+        position: fixed; top: 0px; left: 0px;
+        width: 100%;
+    }
+        .navbar{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            
+            padding: 2px 5px;
+        }
+        .title_nav{
+            color: black;
+            text-decoration: none;
+            font-size: x-large;
+        }
+        .ranking_nav{
+            color: black;
+            opacity: 1.0;
+            font-size: large;
+            margin-right: 2%;
+            text-decoration: none;
+        }
+        .ranking_nav:hover{
+            color: black;
+            opacity: 0.5;
+        }
+    .home{
+        margin: 0;
+    }
+        .mikann_image{
+            width: 50%;
+            margin: 50px 0 40px;
+        }
+        .intro{
+            margin: 0 auto 100px;
+        }
+            .intro_title{
+                color: orangered;
+                margin: 0px 20px 20px;
+                font-size: 30pt;
+            }
+            .intro_sentence{
+                font-size: 14pt;
+            }
+        .input_form{
+            margin: 0;
+        }
+            .input_form_title{
+                margin: 20px;
+            }
+            .button {
+                background: rgba(255,69,0, 0.8);
+                border-radius: 10px;
+                color: white;
+                text-decoration: none; /*下線を消去*/
+                padding: 5px;
+                margin: 5px;
+            }
+            .button:hover {
+                background: rgba(255,69,0, 0.5);
+            }
+            #judge{
+                margin: 20px;
+                height: 50px;
+                width: 80px;
+                font-size: large
+            }
+    footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        margin: 20px 0px 0px;
+        height: 30px;
+        background: rgb(250,235,215,1.0);
+        color:black;
+    }
+    .detail{
+        display: flex;
+        flex-direction: column;
+    }
+        #first_block{
+            margin: 30px auto 0px;
+        }
+        #second_block{
+            display: flex;
+            flex-direction: column;
+
+            margin: 30px;
+            padding: 10px;
+            /* background: rgba(11, 56, 97, 0.5); */
+            background: rgb(250,235,215,1.0);
+        }
+            .title{
+                text-decoration: underline;
+                margin: 10px;
+                text-align:center;
+            }
+            .judge_explain_text{
+                display: flex;
+                flex-direction: column;
+            }
+                .judge_explain_text_first{
+                    text-align: center;
+                }
+                    .blue_text{
+                        color: blue;
+                    }
+                .judge_explain_text_second{
+                    margin: 0;
+                }                   
+                    .not_dajare_condition{
+                        margin: 20px auto;
+                        position: relative;
+                    }
+                    .not_dajare_condition_text {
+                        color: black;
+                        border-left: solid 8px orange;/*左側の線*/
+                        background: whitesmoke;/*背景色*/
+                        margin-bottom: 5px;/*下のバーとの余白*/
+                        line-height: 1.5;
+                        border-radius: 0 15px 15px 0;/*右側の角だけ丸く*/
+                        padding: 0.5em;
+                        list-style-type: none!important;
+                    }
+                .judge_explain_text_third{
+                    text-align: center;
+                }
+                    .red_text{
+                        color: red;
+                    }
+                .judge_explain_text_forth{
+                    margin: 0;
+                }
+                    .dajare_search_approach{
+                        margin: 20px auto;
+                        counter-reset:number; /*数字をリセット*/
+                        list-style-type: none!important; /*数字を一旦消す*/
+                        padding: 0.3em 0.8em;
+                        border: solid 2px #ffb107;
+                    }
+                        .dajare_search_approach_text{
+                            border-bottom: dashed 1px orange;
+                            position: relative;
+                            padding: 0.5em 0.5em 0.5em 30px;
+                            line-height: 1.5em;
+                        }
+                        .dajare_search_approach_text:before{
+                            /* 以下数字をつける */
+                            position: absolute;
+                            counter-increment: number;
+                            content: counter(number);
+                            /*数字のデザイン変える*/
+                            display:inline-block;
+                            background: #ffb107;
+                            color: white;
+                            font-family: 'Avenir','Arial Black','Arial',sans-serif;
+                            font-weight:bold;
+                            font-size: 15px;
+                            border-radius: 50%;
+                            left: 0;
+                            width: 25px;
+                            height: 25px;
+                            line-height: 25px;
+                            text-align: center;
+                            /*以下 上下中央寄せのため*/
+                            top: 50%;
+                            -webkit-transform: translateY(-50%);
+                            transform: translateY(-50%);
+                        }
+                        .dajare_search_approach_text:last-of-type {
+                            border-bottom: none; /*最後のliの線だけ消す*/
+                        }
+                .judge_explain_text_fifth{
+                    text-align: center;
+                }
+        #third_block{
+            display: flex;
+            flex-direction: column;
+
+            margin: 30px;
+            padding: 10px;
+            background: rgb(250,235,215,1.0);
+            text-align: center;
+        }    
+            .evaluation_equation{
+                font-size: x-large;
+                color: red;
+                margin: 20px;
+            }
+            .evaluation_explain_text{
+                margin: 10px;
+            }
+        #forth_block{
+            display: flex;
+            flex-direction: column;
+
+            margin: 30px;
+            padding: 10px;
+            background: rgb(250,235,215,1.0);
+        }
+            .caution_title{
+                margin: 0;
+            }
+            .caution_text{ 
+                margin: 20px auto;
+            }
+    .dajare_true{
+        display: flex;
+        flex-direction: column;
+        }
+        .rank_in{
+            position: relative; top: 65px; right: 5px;
+            display: inline-block;
+            margin: 0 0 0 auto;
+            padding: 7px 10px;
+            width: auto;
+            color: #555;
+            font-size: 16px;
+            background: rgb(250,235,215,1.0);
+            border: solid 3px #555;
+            box-sizing: border-box;
+            border-radius: 15px;
+            }  
+            .rank_in:before {
+                content: "";
+                position: absolute;
+                top: -24px;
+                left: 50%;
+                margin-left: 2px;
+                border: 12px solid transparent;
+                border-bottom: 12px solid rgb(250,235,215,1.0);
+                z-index: 2;
+            }  
+            .rank_in:after {
+                content: "";
+                position: absolute;
+                top: -30px;
+                left: 50%;
+                margin-left: 0px;
+                border: 14px solid transparent;
+                border-bottom: 14px solid #555;
+                z-index: 1;
+            }  
+            .rank_in p {
+                margin: 0;
+                padding: 0;
+            }
+        .dajare_true_text{
+            text-align: center;
+            margin: 80px auto 40px;
+            font-size: 40pt;
+        }
+        .ture_factor_image{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+
+            width: 80%;
+            margin: 10px auto;
+        }
+            .true_factor_name{
+                background: rgb(250,235,215,1.0);
+                padding: 5px;
+                border-radius: 10px;
+            }
+            .true_image{
+                width: 20%;
+                height: auto;
+            }
+        #true_to_input{
+            margin: 20px auto;
+        }
+
+
+    .dajare_false{
+        display: flex;
+        flex-direction: column;
+    }
+        .dajare_false_text{
+            text-align: center;
+            margin: 120px auto 40px;
+            font-size: 40px;
+        }
+        .false_factor{
+            margin: 50px auto;
+        }
+            .false_factor_name{
+                background: rgb(250,235,215,1.0);
+                padding: 5px;
+                border-radius: 10px;
+            }
+        #false_to_input{
+            margin: 20px auto;
+        }
+    .ranking{
+        display: flex;
+        flex-direction: column;
+    }
+        .ranking_title{
+            margin: 50px auto 0px;
+        }
+        table {
+            margin: 10px 10px;
+            border-collapse:  collapse; /* セルの線を重ねる */
+            text-align: center;
+            table-layout: auto;
+            font-size: small;
+        }
+            tr:first-child{
+                background-color:orange;
+            }
+            tr:nth-child(2n+3) {
+                background-color:  rgb(250,235,215,1.0);    /* 背景色指定 */
+            } 
+            th,td {
+                padding: 5px 10px;          /* 余白指定 */
+            }
+            .rank_in_dajare{
+                color: red;
+            }
+            .rank{
+                font-size: large;
+            }
+            .total_score{
+                color: red;
+            }
+        .comment{
+            text-align: center;
+        }
+        #ranking_to_input{
+            text-align: center;
+            margin: 10px auto;
+        }

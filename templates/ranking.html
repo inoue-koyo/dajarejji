@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="ranking">
+    <h1 class="ranking_title">
+        <b>🏅ランキング　トップ10🏅</b>
+    </h1>
+    <table>
+        <tr>
+            <th>順位</th>
+            <th>入力</th>
+            <th>スコア</th>
+            <th>ダジャレの質</th>
+            <th>文法的な正しさ</th>
+            <th>読み</th>
+            <th>検出されたダジャレ</th>
+            <th>登録日</th>
+        </tr>
+
+        {% for rank in ranking %}
+        {% if rank[1]==rank_in_dajare %} <!--ランクインした場合-->
+        <tr class="rank_in_dajare">
+            <td class="rank"><b>{{rank[0]}}</b></td>
+            <td>{{rank[1]}}</td>
+            <td class="total_score"><b>{{rank[2]}}</b></td>
+            <td>{{rank[3]}}</td>
+            <td>{{rank[4]}}</td>
+            <td>{{rank[5]}}</td>
+            <td>{{rank[6]}}</td>
+            <td>{{rank[7]}}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td class="rank"><b>{{rank[0]}}</b></td>
+            <td>{{rank[1]}}</td>
+            <td class="total_score"><b>{{rank[2]}}</b></td>
+            <td>{{rank[3]}}</td>
+            <td>{{rank[4]}}</td>
+            <td>{{rank[5]}}</td>
+            <td>{{rank[6]}}</td>
+            <td>{{rank[7]}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+    <p class="comment">※同じダジャレだった場合、登録日だけ更新されます</p>
+    <a class="button" id="ranking_to_input" href="/">ランクインに挑戦する</a>
+</div>
+{% endblock %}

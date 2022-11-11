@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+ <head>
+     <title>🍊ダジャレッジ</title>
+     <meta charset="utf-8"/>
+     <link rel="stylesheet" href="static/css/style.css">
+ </head>
+ <body>
+     <header class="home_header">
+        <nav class="navbar">
+            <a class="title_nav" href="/">ダジャレッジ</a>
+            {% if text=="rank_in" %} <!--ランクインしたとき。第1引数の関数名からapp.pyでURLを取得する。同時に第2引数の変数も渡せる。-->
+            <a class="ranking_nav" href="{{url_for('ranking_function', rank_in_dajare=input_text)}}">ランキング</a> 
+            {% else %}
+            <a class="ranking_nav" href="/ranking">ランキング</a>
+            {% endif %}
+        </nav>
+     </header>
+
+     {% block content %}{% endblock %}
+ </body>
+</html>

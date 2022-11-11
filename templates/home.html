@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<center>
+    <section class="home">
+        <div class="mikann_image">
+            <img src="static/images/アルミ缶の上にあるみかん.jpg">
+        </div>
+        <div class="intro">
+            <h1 class="intro_title">ダジャレを言うのは誰じゃ？</h1>
+            <p class="intro_sentence">入力された文章がダジャレであるかを判定し、採点します。<br>ダジャレの面白さではなく、ダジャレの完成度で評価します。</p>
+        </div>
+        <div class="input_form">
+            <h2 class="input_form_title">ダジャレを入力してください</h2>
+            <form action = "/judge" method="post">
+                <p><input type="text" name = "input_text" class="input_form_text" size="20" style="width:500px;"></p>
+                <p><input type="submit" value="判定！" class="button" id="judge"></p>
+                <a href="/detail">詳細な判定方法</a>
+            </form>
+        </div>        
+    </section>
+    <footer>
+        <small>© 2022 Koyo Inoue.</small>    
+     </footer>
+</center>
+{% endblock %}

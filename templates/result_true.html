@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="dajare_true">
+    {% if text=="rank_in" %}
+    <div class="rank_in">
+        <p>
+            <b>🏆<span class="red_text">ランクイン</span>しました🏆</b>
+        </p>
+    </div>
+    {% endif %}
+    <h1 class="dajare_true_text">
+        あなたのダジャレは
+        <span class="red_text">{{total_score}}点</span>
+        です！
+    </h1> 
+    <div class="ture_factor_image">
+        <p class="true_factor">
+            <span class="true_factor_name">入力</span>
+            ：{{input_text}}<br><br>
+            <span class="true_factor_name">読み</span>
+            ：{{preprocessing}}<br><br>
+            <span class="true_factor_name">検出されたダジャレ</span>
+            ：{{dajare}}<br><br>
+            <span class="true_factor_name">ダジャレの質</span>
+            ：{{quality_score}}点<br><br>
+            <span class="true_factor_name">文法的な正しさ</span>
+            ：{{grammar_score}}点<br><br>
+        </p>
+        <img src={{image_path}} class="true_image">
+    </div>
+    <a class="button" id="true_to_input" href="/">もう1回判定してみる</a>        
+</div>
+{% endblock %}

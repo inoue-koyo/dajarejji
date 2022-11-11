@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <title>🍊ダジャレッジ</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body class="detail">
+    <section id="first_block">
+        <a class="button" id="detail_to_input" href="/">ダジャレ判定を受けてみる</a>
+    </section>
+    <section id="second_block">
+        <h2 class="title" id="judge_explain_title">
+            <b>【ダジャレかどうかの判定手順】</b>
+        </h2><br>
+        <div class="judge_explain_text">
+            <p class="judge_explain_text_first">
+                <b>入力</b><br>
+                （例：布団が吹っ飛んだ）<br><br>
+    
+                ↓<br><br>
+                <b>読みに変換</b><br>
+                （例：フトンガフットンダ）<br><br>
+    
+                ↓<br><br>
+                <b>以下2つの場合、</b>
+                <b class="blue_text">ダジャレではないと判定</b>
+            </p>
+            <p class="judge_explain_text_second">
+                <ul class="not_dajare_condition">
+                    <li class="not_dajare_condition_text">全文字数をnとしてnが4に満たない<br>（例：母、n=2）</li>
+                    <li class="not_dajare_condition_text">同じ名詞が複数あって、その名詞の読みの反復回数が名詞の登場回数と同じ<br>（例：人民の人民による人民のための政治）</li>
+                </ul>                
+            </p>
+            <p class="judge_explain_text_third">
+                ↓<br><br>
+                <b>n/2文字（小数点以下切り捨て）のダジャレがあるか探して、同じ読みがあれば</b>
+                <b class="red_text">ダジャレと判定</b><br>
+                （例：よくできた内容ですが欲で汚いようです、
+                <span class="red_text">ヨクデキタナイヨウデス</span>
+                ガ
+                <span class="red_text">ヨクデキタナイヨウデス</span>
+                、n/2=11）<br><br>
+    
+                （同じ読みがない場合）<br>
+                ↓<br><br>
+                <b>①→②をダジャレが見つかるまで繰り返す</b>
+            </p>
+            <p class="judge_explain_text_forth">
+                <ol class="dajare_search_approach">
+                    <li class="dajare_search_approach_text">伸ばし棒や小さい文字、濁点などを消去したり、小さい文字を大きくするなどして探す<br>
+                        （例：マッカーサーの目は真っ赤さ、
+                        <span class="red_text">マッカサ</span>
+                        ノメワ
+                        <span class="red_text">マッカサ</span>
+                        ）
+                    </li>
+                    <li class="dajare_search_approach_text">文字数を減らして探す<br>
+                        （例：赤はあかん、
+                        <span class="red_text">アカ</span>
+                        ワ
+                        <span class="red_text">アカ</span>
+                        ン、n/2=3    
+                    </li>
+                </ol>    
+            </p>
+            <p class="judge_explain_text_fifth">
+                ↓<br><br>                    
+                <b>文字数を2文字まで減らしても同じ読みが見つからなければ</b>
+                <b class="blue_text">ダジャレではないと判定</b>
+            </p>
+        </div>
+    </section>
+    <section id="third_block">
+        <h2 class="title" id="evaluation_explain_title">
+            <b>【ダジャレだった場合の評価方法】</b>
+        </h2>
+        <p class="evaluation_equation">
+            スコア＝ダジャレの質＋文法的な正しさ
+        </p>
+        <p class="evaluation_explain_text">
+            「
+            <span class="red_text">ダジャレの質</span>
+            」はダジャレ部分の文字数の多さなどから決定します。<br>上記の判定手順においてより早い段階でダジャレと判定されると点数が高くなります。（おおよそ80点満点）<br><br>
+            「
+            <span class="red_text">文法的な正しさ</span>
+            」は文章の文法的な正しさを求めるモデルの結果から決定します。<br>同じダジャレを含んでいても、より自然な文章である方が完成度が高いという考えです。（おおよそ20点満点）<br><br><br>
+            ❕❕100点満点を目安にしていますが、今後さらに質の高いダジャレが出てきたら100点を超える可能性があります❕❕
+        </p>
+    </section>
+    <section id="forth_block">
+        <h2 class="title" id="caution_title">
+            <b>【注意点】</b>
+        </h2>
+        <ol class="caution_text">
+            <li><b>ダジャレじゃないのにダジャレと判定されてしまうことがあります</b>
+                <ul>
+                    <li>靴を靴箱に入れる</li>
+                    <li>わくわく</li>
+                    <li>人民のじんみんによる人民のための政治　　　など</li>
+                </ul>
+            </li><br>
+            <li><b>英語の読み（yes→イエス）やローマ字読み（JR→ジェーアール）には対応していますが、判別に用いた辞書にない単語はうまく変換されません</b>
+                <ul>
+                    <li>Twitter</li>
+                    <li>TOTO　　　など</li>        
+                </ul>
+            </li><br>
+            <li><b>英語化してダジャレになるものには対応していません</b>
+                <ul>
+                    <li>お米がないとつライッス　　　など</li>
+                </ul>
+            </li><br>
+            <li><b>数字は書き方によって読み方が変わります</b>
+                <ul>
+                    <li>23→ニジューサン</li>
+                    <li>2,3→ニサン　　　など</li>
+                </ul>
+            </li><br>
+            <li><b>2回変換しないとダジャレにならないものはダジャレと判定されません</b>
+                <ul>
+                    <li>メガネのメーカーね→濁音を取る＋伸ばし棒を消す　　　など</li>
+                </ul>
+            </li>
+        </ol>
+    </section>    
+</body>
