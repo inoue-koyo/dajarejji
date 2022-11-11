@@ -24,39 +24,39 @@ from selenium.webdriver.support.ui import WebDriverWait
 # print(scraping())
 
 #ダジャレステーションからスクレイピングする関数-----------------------------------------------------------------------
-def scraping():
-    options = Options()
+# def scraping():
+#     options = Options()
     #下記2行は「ERROR:device_event_log_impl.cc(214)] [23:00:30.947] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: システムに接続されたデバイスが機能していません。」というエラーをなくすため
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    options.use_chromium = True
+    # options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    # options.use_chromium = True
     # options.headless = True
 
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+    # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
     # driver.implicitly_wait(10) #「selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element:」というエラーを避けるための暗黙的な待機。指定した時間を最大で待機し、要素が見つかったらその時点で待機するのを止めて処理を続ける。
 
-    driver.get("https://dajare.jp/#Search")
+    # driver.get("https://dajare.jp/#Search")
 
-    elem = driver.find_element(By.ID, "PanelSearchMenuHeaderButton") #find_elements_by_*系メソッドはseleniumのバージョン4.3.0で廃止された
-    elem = elem.find_element(By.CLASS_NAME, "LabelDefault") 
-    elem.click()
+    # elem = driver.find_element(By.ID, "PanelSearchMenuHeaderButton") #find_elements_by_*系メソッドはseleniumのバージョン4.3.0で廃止された
+    # elem = elem.find_element(By.CLASS_NAME, "LabelDefault") 
+    # elem.click()
 
-    select=driver.find_element(By.ID,"ViewOrder")
-    select=Select(select)
-    select.select_by_value('EvaluationNumberDescending')
+    # select=driver.find_element(By.ID,"ViewOrder")
+    # select=Select(select)
+    # select.select_by_value('EvaluationNumberDescending')
 
-    search=driver.find_element(By.CSS_SELECTOR,"#PanelSearchMenuBody .PanelFormButton.PanelFormButtonTop.PanelFormButtonBottom.PanelFade.PanelFadeIn a.LabelAnchor.LabelAnchorIcon.LabelAnchorIconSearch") #クラス名の空白は「.」に置き換える
-    search.click()
+    # search=driver.find_element(By.CSS_SELECTOR,"#PanelSearchMenuBody .PanelFormButton.PanelFormButtonTop.PanelFormButtonBottom.PanelFade.PanelFadeIn a.LabelAnchor.LabelAnchorIcon.LabelAnchorIconSearch") #クラス名の空白は「.」に置き換える
+    # search.click()
 
     #上2行と同じ挙動を示す操作
     # element = driver.find_element(By.ID,'FormSearch')
     # element.submit()
 
-    time.sleep(10)
+    # time.sleep(10)
 
-    html = driver.page_source
-    soup = BeautifulSoup(html,'html.parser')
-    print(soup)
+    # html = driver.page_source
+    # soup = BeautifulSoup(html,'html.parser')
+    # print(soup)
 
     # driver.quit()
 

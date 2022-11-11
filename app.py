@@ -26,7 +26,7 @@ def layout():
     #     return render_template("layout.html")
 
 @app.route("/ranking")
-def ranking_function(): #最初、関数名を「ranking」にしてたら、1行下でhtmlに値を渡すときにnplistじゃなくて関数名が代入されてranking.htmlでfor文回すときに"function"はイテラブルじゃないっていうエラー出たから関数名変えた。
+def ranking_function(): 
     rank_in_dajare=request.args.get("rank_in_dajare") #layout.htmlから変数を受け取っている
     df = pd.read_csv('./csv/ranking.csv')
     ranking = df.to_numpy().tolist()
@@ -42,7 +42,7 @@ def dajare():
         total_score=result[2]+result[3]
         df = pd.read_csv('./csv/ranking.csv')
         ranking = df.to_numpy().tolist()
-        if ranking==[]: #初登録の時だけランキングリスト空やから場合分けしてるけど、初めからランキングリストに何かしらのダジャレを加えておけば問題はない
+        if ranking==[]: #初登録の時だけランキングリストが空やから場合分けしてる
             rank=[1,input_text, total_score, result[2], result[3], result[1], result[4], datetime.datetime.now().date()]
             ranking.append(rank)
             savecsv(ranking)
