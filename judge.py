@@ -10,7 +10,7 @@ from alphabet2kana import a2k
 from pprint import pprint
 
 from functions import judge
-from functions import scraping
+# from functions import scraping
 
 from bert_sentence_accuracy import bert
 
