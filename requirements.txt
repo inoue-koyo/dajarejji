@@ -15,6 +15,6 @@ jaconv==0.3
 transformers==4.23.1
 fugashi==1.2.0
 ipadic==1.0.0
-# -f https://download.pytorch.org/whl/torch_stable.html
-# torch==1.12.1+cpu
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.12.1+cpu
 numpy==1.21.6

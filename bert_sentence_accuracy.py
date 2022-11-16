@@ -1,5 +1,5 @@
 from transformers import BertJapaneseTokenizer, BertForMaskedLM, pipeline, BertConfig
-# import torch #Bertを使うのに必要？ 
+import torch #Bertを使うのに必要？ 
 import re
 import numpy as np
 
