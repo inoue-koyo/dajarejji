@@ -7,7 +7,7 @@ import collections
 import pykakasi
 import alkana
 from alphabet2kana import a2k
-from pprint import pprint
+# from pprint import pprint
 
 from functions import judge
 # from functions import scraping
