@@ -1,15 +1,15 @@
 import jaconv
-from bs4 import BeautifulSoup
-from urllib import request
-from pprint import pprint
-from selenium import webdriver
-from selenium.webdriver.chrome import service as fs
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import Select
-import time
-from selenium.webdriver.support.ui import WebDriverWait
+# from bs4 import BeautifulSoup
+# from urllib import request
+# from pprint import pprint
+# from selenium import webdriver
+# from selenium.webdriver.chrome import service as fs
+# from webdriver_manager.chrome import ChromeDriverManager
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.chrome.options import Options
+# from selenium.webdriver.support.ui import Select
+# import time
+# from selenium.webdriver.support.ui import WebDriverWait
 
 
 #ダジャレステーションからスクレイピングする関数-----------------------------------------------------------------------
