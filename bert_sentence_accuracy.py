@@ -3,6 +3,7 @@ import torch #Bertを使うのに必要？
 import re
 import numpy as np
 
+@torch.no_grad()
 def bert(input):
     # input='「イワシ・タイ・ナマズ」って言わしたいな、まず。'
     # input2='給料は玉ねぎのことです。'
