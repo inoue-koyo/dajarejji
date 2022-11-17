@@ -1,1 +1,1 @@
-web: gunicorn app:app --preload app.wsgi --max-requests 6000 --log-file -
+web: gunicorn app:app --preload --max-requests 6000  --workers 1 --log-file -
