@@ -12,13 +12,15 @@ def bert(input):
     
     # GPUtil.showUtilization()
     
-    torch.cuda.empty_cache()
+    # torch.cuda.empty_cache()
 
     pretrained = 'cl-tohoku/bert-base-japanese-whole-word-masking'#事前学習済みモデルの選択
     tokenizer = BertJapaneseTokenizer.from_pretrained(pretrained) #分析器の事前学習モデルの選択
     model = BertForMaskedLM.from_pretrained(pretrained) #事前学習モデルのロード
     config=BertConfig.from_pretrained(pretrained) # 事前学習済みモデルの設定
     MLM=pipeline('fill-mask',model=model,tokenizer=tokenizer,config=config) # pepeline関数でモデルを利用できるようにする
+
+    # GPUtil.showUtilization()
 
     score=0
     tokenized_text1=tokenizer.tokenize(input) # 文章を形態素解析
