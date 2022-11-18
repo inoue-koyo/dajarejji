@@ -18,3 +18,5 @@ ipadic==1.0.0
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.11.0+cpu
 numpy==1.21.6
+
+rq==1.11.1

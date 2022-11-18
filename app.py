@@ -5,6 +5,17 @@ import os
 
 from judge import score
 
+
+from rq import Queue
+from worker import conn
+
+q = Queue(connection=conn)
+
+from utils import count_words_at_url
+
+result = q.enqueue(count_words_at_url, 'http://heroku.com')
+
+
 app = Flask(__name__)
 # app = Flask(__name__, static_folder='./static') #cssやimagesはstaticに入ってればいい。そのstaticを指定するのがstatic_folder。デフォルトではstaticはstaticディレクトリになる。
 
