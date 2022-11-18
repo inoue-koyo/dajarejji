@@ -3,12 +3,16 @@ import torch #Bertを使うのに必要
 import re
 import numpy as np
 
+# import GPUtil
+
 @torch.no_grad()
 def bert(input):
     # input='「イワシ・タイ・ナマズ」って言わしたいな、まず。'
     # input2='給料は玉ねぎのことです。'
-
-    torch._C._cuda_emptyCache()
+    
+    # GPUtil.showUtilization()
+    
+    torch.cuda.empty_cache()
 
     pretrained = 'cl-tohoku/bert-base-japanese-whole-word-masking'#事前学習済みモデルの選択
     tokenizer = BertJapaneseTokenizer.from_pretrained(pretrained) #分析器の事前学習モデルの選択
