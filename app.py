@@ -6,14 +6,14 @@ import os
 from judge import score
 
 
-from rq import Queue
-from worker import conn
+# from rq import Queue
+# from worker import conn
 
-q = Queue(connection=conn)
+# q = Queue(connection=conn)
 
-from utils import count_words_at_url
+# from utils import count_words_at_url
 
-result = q.enqueue(count_words_at_url, 'http://heroku.com')
+# result = q.enqueue(count_words_at_url, 'http://heroku.com')
 
 
 app = Flask(__name__)
