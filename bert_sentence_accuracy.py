@@ -5,7 +5,7 @@ import numpy as np
 
 # import GPUtil
 
-# @torch.no_grad()
+@torch.no_grad()
 def bert(input):
     # input='「イワシ・タイ・ナマズ」って言わしたいな、まず。'
     # input2='給料は玉ねぎのことです。'
