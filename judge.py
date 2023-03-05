@@ -170,25 +170,27 @@ def score(s):
         return judge(no_symbol,s)
     else: #ダジャレと判定されたパターン
         quality_score=0 #ダジャレの質を示すスコア
-        quality_score+=judge(no_symbol,s)[1]*3 #30点
-        quality_score+=judge(no_symbol,s)[2]*7 #20点
-        if judge(no_symbol,s)[3]=="nothing": #30点
-            quality_score+=30
+        quality_score+=judge(no_symbol,s)[1]*4 #40点、grammar_scoreを含める場合は30点
+        quality_score+=judge(no_symbol,s)[2]*8 #24点、grammar_scoreを含める場合は20点
+        if judge(no_symbol,s)[3]=="nothing": #36点、grammar_scoreを含める場合は30点
+            quality_score+=36
         elif judge(no_symbol,s)[3]=="macron_to_vowel" or judge(no_symbol,s)[3]=="macron_to_vowel_iu":
-            quality_score+=29
+            quality_score+=30
         elif judge(no_symbol,s)[3]=="delete_macron":
-            quality_score+=28
+            quality_score+=29
         elif judge(no_symbol,s)[3]=="delete_smalltu":
-            quality_score+=27
+            quality_score+=28
         elif judge(no_symbol,s)[3]=="delete_small":
-            quality_score+=26
+            quality_score+=27
         elif judge(no_symbol,s)[3]=="small_to_capital":
-            quality_score+=25
+            quality_score+=26
         elif judge(no_symbol,s)[3]=="delete_voiced_semivoiced_sound":
-            quality_score+=24
+            quality_score+=25
         
-        grammar_score=round(-50/bert(s),1) #20点、ダジャレの文法的な正しさを示すスコア、Bertが-2.5のときに20点満点
+        # grammar_score=round(-50/bert(s),1) #20点、ダジャレの文法的な正しさを示すスコア、Bertが-2.5のときに20点満点
+        grammar_score=0
 
         return s, no_symbol, quality_score, grammar_score, judge(no_symbol,s)[0], judge(no_symbol,s)[1], judge(no_symbol,s)[2]
+
         #入力、前処理後、スコア（ダジャレの質）、スコア（文法的な正しさ）、トータルスコア、検出されたダジャレ、ダジャレの文字数、ダジャレの反復回数
 # print(score("佐賀市に有るか無いか？捜しに歩かないか？"))
