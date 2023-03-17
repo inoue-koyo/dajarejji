@@ -112,22 +112,22 @@ def score(s):
         return judge(no_symbol,s)
     else: #ダジャレと判定されたパターン
         quality_score=0 #ダジャレの質を示すスコア
-        quality_score+=judge(no_symbol,s)[1]*4 #40点、grammar_scoreを含める場合は30点
-        quality_score+=judge(no_symbol,s)[2]*8 #24点、grammar_scoreを含める場合は20点
+        quality_score+=judge(no_symbol,s)[1]*3 #40点、grammar_scoreを含める場合は30点
+        quality_score+=judge(no_symbol,s)[2]*7 #24点、grammar_scoreを含める場合は20点
         if judge(no_symbol,s)[3]=="nothing": #36点、grammar_scoreを含める場合は30点
-            quality_score+=36
-        elif judge(no_symbol,s)[3]=="macron_to_vowel" or judge(no_symbol,s)[3]=="macron_to_vowel_iu":
             quality_score+=30
-        elif judge(no_symbol,s)[3]=="delete_macron":
-            quality_score+=29
-        elif judge(no_symbol,s)[3]=="delete_smalltu":
-            quality_score+=28
-        elif judge(no_symbol,s)[3]=="delete_small":
-            quality_score+=27
-        elif judge(no_symbol,s)[3]=="small_to_capital":
-            quality_score+=26
-        elif judge(no_symbol,s)[3]=="delete_voiced_semivoiced_sound":
+        elif judge(no_symbol,s)[3]=="macron_to_vowel" or judge(no_symbol,s)[3]=="macron_to_vowel_iu":
             quality_score+=25
+        elif judge(no_symbol,s)[3]=="delete_macron":
+            quality_score+=24
+        elif judge(no_symbol,s)[3]=="delete_smalltu":
+            quality_score+=23
+        elif judge(no_symbol,s)[3]=="delete_small":
+            quality_score+=22
+        elif judge(no_symbol,s)[3]=="small_to_capital":
+            quality_score+=21
+        elif judge(no_symbol,s)[3]=="delete_voiced_semivoiced_sound":
+            quality_score+=20
         
         grammar_score=round(-50/bert(s),1) #20点、ダジャレの文法的な正しさを示すスコア、Bertが-2.5のときに20点満点
         # grammar_score=0
