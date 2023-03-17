@@ -7,10 +7,8 @@ import collections
 import pykakasi
 import alkana
 from alphabet2kana import a2k
-# from pprint import pprint
 
 from functions import judge
-# from functions import scraping
 
 from bert_sentence_accuracy import bert
 
@@ -18,24 +16,9 @@ t = Tokenizer()
 kks = pykakasi.kakasi()
 
 def preprocessing(s):
-    # s="猛暑が無い都市に来ているのは、もう、しょうがない歳にきているから。"
-
-    #英数字と記号を半角に変換----------------------------------------------------------------------------------------
-    # s=s.translate(str.maketrans({chr(0xFF01 + i): chr(0x21 + i) for i in range(94)}))
-
-    # tokenize_lst=list(t.tokenize(s))
-    # for token in t.tokenize(s):
-    #     print(token)
-
     #品詞分解や単語の重複計算をする----------------------------------------------------------------------------------
     c = collections.Counter(t.tokenize(s, wakati=True))
     mc = c.most_common() #（単語、出現回数）のタプルが並んだリスト
-    # for token in t.tokenize(s):
-    #     print(token)
-    # result=kks.convert(s) 
-    # for i in range(len(result)):
-    #     print(result[i]["kana"])
-    # print(mc)
 
     #mcリストの単語を名詞に絞る--------------------------------------------------------------------------------------
     noun_lst=[]
@@ -46,17 +29,6 @@ def preprocessing(s):
         if token.part_of_speech.split(",")[0]=="名詞":
             noun_lst.append(mc[i])
     # print(noun_lst)
-
-    #単語の重複数を正確に計算----------------------------------------------------------------------------------------
-    # new_noun_lst=[]
-    # for i in range(len(noun_lst)):
-    #     n=0
-    #     for j in range(len(noun_lst)):
-    #         if i!=j:
-    #             if noun_lst[i][0] in noun_lst[j][0]:
-    #                 n+=1
-    #     new_noun_lst.append((noun_lst[i][0],int(noun_lst[i][1])+n)) #「靴を靴箱に入れる」の場合、（靴,2）（靴箱,1）となる。→しかし→「イタリア縦断していたリア充男子」の「リア」や「深夜魔の手伸びる新山手のビル」の「手」も同じ名詞と数えてしまってダジャレを見逃してることが多かったからnew_noun_lstは使わん。
-    # print(new_noun_lst)
 
     #アラビア数字を漢数字に変換する関数------------------------------------------------------------------------------
     #??????????from kanjize import int2kanjiっていう関数があったけど、「0」だけ入力するとエラーになるのでやめた???????
@@ -118,36 +90,6 @@ def preprocessing(s):
     # print(no_symbol)
 
     return no_symbol,noun_lst
-
-
-#スクレイピングしてきた文字列に対して、読みの重複数と単語の重複数を比較して問題なければダジャレかどうかをジャッジする----
-# dajare_lst=scraping()
-# dajare_hanntei=[]
-# for i in range(len(dajare_lst)):
-#     a=0
-#     no_symbol=preprocessing(dajare_lst[i])[0]
-#     noun_lst=preprocessing(dajare_lst[i])[1]
-
-#     for j in range(len(noun_lst)):
-#         if noun_lst[j][1]>=2:
-#             if t.tokenize(noun_lst[j][0]).__next__().phonetic=="*":
-#                 result=kks.convert(t.tokenize(noun_lst[j][0]).__next__().surface) 
-#                 yomi=result[0]["kana"]
-#             else:
-#                 yomi = t.tokenize(noun_lst[j][0]).__next__().phonetic
-
-#             if no_symbol.count(yomi)<=noun_lst[j][1]:
-#                 print(f"【{dajare_lst[i]}】は同じ名詞を複数回用いているのでダジャレではない可能性があります")
-#                 a=1
-#                 break
-#     if a==0:
-#         dajare=dajare_lst[i]
-#         if judge(no_symbol,dajare)[1]==1:
-#             print(judge(no_symbol,dajare)[0])
-#         else:
-#             dajare_hanntei.append(judge(no_symbol,dajare))
-# pprint(dajare_hanntei)
-# pprint(len(dajare_hanntei))
 
 #確認用-------------------------------------------------------------------------------------------------------------
 def score(s):
