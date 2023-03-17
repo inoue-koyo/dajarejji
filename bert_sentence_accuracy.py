@@ -35,16 +35,3 @@ def bert(input):
     # 文章と文法的な正しさの度合を表示
     return score 
 # print(bert())
-
-    # score2=0
-    # tokenized_text2=tokenizer.tokenize(input2)
-    # for i in range(len(tokenized_text2)):
-    #     provisional=tokenized_text2[i]
-    #     tokenized_text2[i]='[MASK]'
-    #     text=''.join(tokenized_text2)
-    #     score=re.findall(r'\d+\.\d+',str(MLM(text)[0]))
-    #     score2=+np.log(float(score[0])/len(tokenized_text2))
-    #     tokenized_text2[i]=provisional
-
-    # print(input2)
-    # print(str(score2))
