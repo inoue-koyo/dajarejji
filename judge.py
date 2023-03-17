@@ -129,8 +129,8 @@ def score(s):
         elif judge(no_symbol,s)[3]=="delete_voiced_semivoiced_sound":
             quality_score+=25
         
-        # grammar_score=round(-50/bert(s),1) #20点、ダジャレの文法的な正しさを示すスコア、Bertが-2.5のときに20点満点
-        grammar_score=0
+        grammar_score=round(-50/bert(s),1) #20点、ダジャレの文法的な正しさを示すスコア、Bertが-2.5のときに20点満点
+        # grammar_score=0
 
         return s, no_symbol, quality_score, grammar_score, judge(no_symbol,s)[0], judge(no_symbol,s)[1], judge(no_symbol,s)[2]
 
