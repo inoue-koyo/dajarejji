@@ -1,72 +1,4 @@
 import jaconv
-# from bs4 import BeautifulSoup
-# from urllib import request
-# from pprint import pprint
-# from selenium import webdriver
-# from selenium.webdriver.chrome import service as fs
-# from webdriver_manager.chrome import ChromeDriverManager
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.chrome.options import Options
-# from selenium.webdriver.support.ui import Select
-# import time
-# from selenium.webdriver.support.ui import WebDriverWait
-
-
-#ダジャレステーションからスクレイピングする関数-----------------------------------------------------------------------
-# def scraping():
-#     response = request.urlopen("https://dajare.jp/search/")
-#     soup = BeautifulSoup(response)
-#     aidhi = soup.find(id="PanelWorkRankingTotal")
-#     dajare_lst=[]
-#     for item in aidhi.find_all("td", "List ListWorkBody"):
-#         dajare_lst.append(item.find("a").text)
-#     return dajare_lst
-# print(scraping())
-
-#ダジャレステーションからスクレイピングする関数-----------------------------------------------------------------------
-# def scraping():
-#     options = Options()
-    #下記2行は「ERROR:device_event_log_impl.cc(214)] [23:00:30.947] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: システムに接続されたデバイスが機能していません。」というエラーをなくすため
-    # options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    # options.use_chromium = True
-    # options.headless = True
-
-    # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-
-    # driver.implicitly_wait(10) #「selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element:」というエラーを避けるための暗黙的な待機。指定した時間を最大で待機し、要素が見つかったらその時点で待機するのを止めて処理を続ける。
-
-    # driver.get("https://dajare.jp/#Search")
-
-    # elem = driver.find_element(By.ID, "PanelSearchMenuHeaderButton") #find_elements_by_*系メソッドはseleniumのバージョン4.3.0で廃止された
-    # elem = elem.find_element(By.CLASS_NAME, "LabelDefault") 
-    # elem.click()
-
-    # select=driver.find_element(By.ID,"ViewOrder")
-    # select=Select(select)
-    # select.select_by_value('EvaluationNumberDescending')
-
-    # search=driver.find_element(By.CSS_SELECTOR,"#PanelSearchMenuBody .PanelFormButton.PanelFormButtonTop.PanelFormButtonBottom.PanelFade.PanelFadeIn a.LabelAnchor.LabelAnchorIcon.LabelAnchorIconSearch") #クラス名の空白は「.」に置き換える
-    # search.click()
-
-    #上2行と同じ挙動を示す操作
-    # element = driver.find_element(By.ID,'FormSearch')
-    # element.submit()
-
-    # time.sleep(10)
-
-    # html = driver.page_source
-    # soup = BeautifulSoup(html,'html.parser')
-    # print(soup)
-
-    # driver.quit()
-
-    # chrome_service = fs.Service(executable_path='C:￥chromedriver_win32￥chromedriver.exe')
-    # driver = webdriver.Chrome(service=chrome_service)
-    # driver.get("https://dajare.jp/#Search")
-    # elem_search_word = driver.find_element_by_class_name("LabelDefault")
-    # print(elem_search_word)
-
-# scraping()
 
 #文字列の中に何文字のダジャレ（同じ読みの繰り返し）が何個あるかを数える関数--------------------------------------------
 def count(i,output,function_name):
@@ -74,44 +6,7 @@ def count(i,output,function_name):
     for k in range(len(lst)):
         num=lst.count(lst[k])
         if num>=2:
-            # x=str(i)+"文字"
-            # y=str(num)+"個"
             return lst[k],i,num,function_name
-
-#最も文字数の多いダジャレ（同じ読みの繰り返し）を出力する関数------------------------------------------
-# def judge(no_symbol):
-#     n=len(no_symbol)//2
-#     if n<2:
-#         return "文字数が少ないのでダジャレじゃない可能性が高いです"
-#     else:
-#         for i in range(n,1,-1):
-#             result=[]
-#             output=no_symbol
-#             result.append(count(i,output,"nothing"))
-            
-#             output=macron_to_vowel(no_symbol)
-#             result.append(count(i,output,"macron_to_vowel"))
-                    
-#             output=macron_to_vowel_iu(no_symbol)
-#             result.append(count(i,output,"macron_to_vowel_iu"))
-            
-#             output=delete_macron(no_symbol)
-#             result.append(count(i,output,"delete_macron"))
-
-#             output=delete_smalltu(no_symbol)
-#             result.append(count(i,output,"delete_smalltu"))
-
-#             output=delete_small(no_symbol)
-#             result.append(count(i,output,"delete_small"))
-
-#             output=small_to_capital(no_symbol)
-#             result.append(count(i,output,"small_to_capital"))
-
-#             output=delete_voiced_semivoiced_sound(no_symbol)
-#             result.append(count(i,output,"delete_voiced_semivoiced_sound"))
-            
-#             print(result)
-            # return "ダジャレではない可能性が高いです"
 
 #最も文字数の多いダジャレ（同じ読みの繰り返し）を出力する関数------------------------------------------
 def judge(no_symbol,s):
